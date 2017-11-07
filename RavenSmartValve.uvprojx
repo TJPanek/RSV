@@ -385,11 +385,6 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
-            <File>
-              <FileName>ConfigGPIO.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ConfigGPIO.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

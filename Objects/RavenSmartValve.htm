@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\RavenSmartValve.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\RavenSmartValve.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Nov 06 20:44:39 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Nov 06 20:58:10 2017
 <BR><P>
 <H3>Maximum Stack Usage =        120 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; ConfigGPIO &rArr; HAL_GPIO_Init
+main &rArr; configGPIO &rArr; HAL_GPIO_Init
 <P>
 <H3>
 Functions with no stack information
@@ -264,7 +264,7 @@ Global Symbols
 
 <P><STRONG><a name="[80]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; ConfigGPIO &rArr; HAL_GPIO_Init
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; configGPIO &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -670,18 +670,10 @@ Global Symbols
 
 <P><STRONG><a name="[f3]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[90]"></a>ConfigGPIO</STRONG> (Thumb, 104 bytes, Stack size 88 bytes, main.o(i.ConfigGPIO))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = ConfigGPIO &rArr; HAL_GPIO_Init
-</UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-</UL>
-<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
 <P><STRONG><a name="[91]"></a>HAL_GPIO_Init</STRONG> (Thumb, 466 bytes, Stack size 24 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfigGPIO
+<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configGPIO
 </UL>
 
 <P><STRONG><a name="[60]"></a>SystemInit</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, system_stm32f4xx.o(i.SystemInit))
@@ -696,6 +688,14 @@ Global Symbols
 <P><STRONG><a name="[71]"></a>_mutex_acquire</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, rtx_conf_cm.o(i._mutex_acquire), UNUSED, KEPT)
 
 <P><STRONG><a name="[72]"></a>_mutex_release</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rtx_conf_cm.o(i._mutex_release), UNUSED, KEPT)
+
+<P><STRONG><a name="[90]"></a>configGPIO</STRONG> (Thumb, 104 bytes, Stack size 88 bytes, main.o(i.configGPIO))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = configGPIO &rArr; HAL_GPIO_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
 
 <P><STRONG><a name="[b3]"></a>dbg_init</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, hal_cm.o(i.dbg_init))
 <BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_sys_init
@@ -721,8 +721,8 @@ Global Symbols
 <P><STRONG><a name="[94]"></a>isrMessagePut</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, rt_cmsis.o(i.isrMessagePut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = isrMessagePut &rArr; isr_mbx_send &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_mbx_check
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_mbx_check
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sysTimerTick
 </UL>
@@ -746,9 +746,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = main &rArr; ConfigGPIO &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = main &rArr; configGPIO &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfigGPIO
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configGPIO
 </UL>
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -1189,10 +1189,10 @@ Global Symbols
 <P><STRONG><a name="[64]"></a>svcKernelInitialize</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, rt_cmsis.o(i.svcKernelInitialize))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = svcKernelInitialize &rArr; svcThreadCreate &rArr; rt_tsk_create &rArr; rt_init_context &rArr; rt_init_stack
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcThreadCreate
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_init_mem
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcThreadCreate
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcMessageCreate
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_sys_init
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_init_mem
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelInitialize
 </UL>
