@@ -54,4 +54,10 @@ void configGPIO()
 	FlowMeter_Init.Mode = GPIO_MODE_INPUT;
 	FlowMeter_Init.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOA, &FlowMeter_Init);
+	return;
+}
+
+void CAN_Init()
+{
+	return;
 }
