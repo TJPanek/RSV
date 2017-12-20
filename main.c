@@ -3,11 +3,19 @@
 
 
 void configGPIO(void);
+void configInterrupts(void);
 
 
 int main (void)
 {
-configGPIO();
+	configGPIO();
+	configInterrupts();
+	
+	while(1)
+	{
+		//Main Code Here
+		
+	}
 	
 	
 	
@@ -18,11 +26,7 @@ configGPIO();
 	
 	
 	
-	
-	
-	
-	
-return 0;
+	return 0;
 }
 
 void configGPIO()
@@ -54,4 +58,13 @@ void configGPIO()
 	FlowMeter_Init.Mode = GPIO_MODE_INPUT;
 	FlowMeter_Init.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOA, &FlowMeter_Init);
+	
+	return;
+}
+
+void configInterrupts()
+{
+	//Stuff
+	
+	return;
 }
